@@ -223,6 +223,18 @@ BUILTINS.update locals! where
   scanl1 = f xs -> itertools.accumulate xs f
   # FIXME should also define foldr(1) and scanr(1). Probably.
 
+  #: Same as map, but returns a list.
+  #: 
+  #: lmap :: (a -> b) [a] -> [b] 
+  #:
+  lmap = f *: xs -> list $ map f *: xs
+
+  #: Joins a list of lists into a single list
+  #:
+  #: join :: [[a]] -> [a]
+  #:
+  join = xs -> foldl (+) [] xs
+
   __dg_super__  = super
   __dg_locals__ = locals
 
